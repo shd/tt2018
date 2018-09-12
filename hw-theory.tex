@@ -1,0 +1,44 @@
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{proof}
+\newcommand{\gq}[1]{\texttt{<<}#1\texttt{>>}}
+\newcommand{\ogq}[1]{\overline{\texttt{<<}#1\texttt{>>}}}
+\begin{document}
+
+\begin{center}{\Large\textsc{\textbf{Теоретические (``малые'') домашние задания}}}\\
+             \it Математическая логика, ИТМО, М3334-М3339, осень 2018 года\end{center}
+
+\section*{Домашнее задание №1: <<знакомство с лямбда-исчислением>>}
+
+\begin{enumerate}
+\item Расставьте скобки:
+
+$\lambda f.\lambda x.f\ x\ \ (\lambda c.g\ f)\ x\ a\ \lambda b.\lambda a.x$
+
+\item Проведите бета-редукции и приведите выражения к нормальной форме:
+
+\begin{enumerate}
+\item $(\lambda f.\lambda x.f\ (f\ x))\ (\lambda f.\lambda x.f\ (f\ x))$
+\item $(\lambda a.\lambda b.b)\ ((\lambda x.x\ x)\ (\lambda x.x\ x\ x))$
+\end{enumerate}
+
+\item Выразите следующие функции в лямбда-исчислении:
+
+\begin{enumerate}
+\item Or, Xor
+\item isZero (T, если аргумент равен 0, иначе F)
+\item isEven (T, если аргумент чётный)
+\item умножение на 2, умножение
+\item возведение в степень
+\item вычитание 1, вычитание
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
