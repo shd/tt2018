@@ -55,4 +55,41 @@ $\lambda f.\lambda x.f\ x\ \ (\lambda c.g\ f)\ x\ a\ \lambda b.\lambda a.x$
 \item $(\rightarrow_\beta) \subseteq (\rightrightarrows_\beta)$ 
 \end{enumerate}
 
+\section*{Домашнее задание №3: <<просто типизированное лямбда-исчисление>>}
+
+\begin{enumerate}
+\item Докажите лемму о промежуточных типах (Generation lemma, 3.1.6 из 
+Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism). 
+А именно, покажите, что:
+  \begin{enumerate}
+  \item $\Gamma \vdash x : \tau$ влечёт $x : \tau \in \Gamma$.
+  \item $\Gamma \vdash M N : \sigma$ влечёт существование типа $\tau$, такого, что
+    что $\Gamma \vdash M : \tau\rightarrow\sigma$ и $\Gamma \vdash N : \tau$.
+  \item $\Gamma \vdash \lambda x.M : \sigma$ влечёт существование типов $\tau$ и $\rho$, таких, что
+    $\Gamma, x: \tau \vdash M : \rho$ и $\sigma = \tau\rightarrow\rho$
+  \end{enumerate}
+
+\item Докажите лемму о подстановке (Substitution lemma, 3.1.8):
+\begin{enumerate}
+   \item Обозначим за $\sigma[\alpha:=\tau]$ (за $\Gamma[\alpha:=\tau]$) замену всех элементарных 
+   типов $\alpha$ на тип $\tau$ в типе $\sigma$ (во всех типах в $\Gamma$). 
+   Тогда, если $\Gamma \vdash M : \sigma$, то $\Gamma[\alpha := \tau] \vdash M : \sigma [\alpha := \tau]$.
+   \item Если $\Gamma, x:\tau \vdash M : \sigma$ и $\Gamma \vdash N : \tau$, то $\Gamma \vdash M[x := N]:\sigma$.
+\end{enumerate}
+
+\item Докажите лемму о редукции терма (Subject reduction proposition, 3.1.9):
+    если $\Gamma\vdash M:\sigma$ и $M \rightarrow_\beta N$, то $\Gamma \vdash N:\sigma$.
+
+\item Пользуясь предыдущими пунктами, покажите, что $Y$ нетипизируем в просто типизированном лямбда-исчислении.
+
+\item Найдите терм $M$ и два различных типа $\sigma$ и $\tau$, что $\vdash M: \sigma$ и $\vdash M:\tau$.
+    А существует ли терм $M$, имеющий в точности один тип?
+
+\item Покажите, что лемма о редукции терма не работает <<в обратную сторону>>. А именно, что:
+   \begin{enumerate}
+   \item Найдутся $M$, $N$ и $\tau$, что $\vdash N:\tau$, $M \rightarrow_\beta N$, но $M$ не имеет типа.
+   \item Найдутся $M$, $N$, $\sigma$ и $\tau$, что $\vdash M:\sigma$, $\vdash N:\tau$ и $M \rightarrow_\beta N$, но
+     $\nvdash M:\tau$.
+   \end{enumerate}
+\end{enumerate}
 \end{document}
