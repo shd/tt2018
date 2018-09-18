@@ -25,3 +25,16 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 3
+### Y-комбинатор, просто типизированное лямбда-исчисление
++ Y-комбинатор, рекурсия
++ Парадоксы лямбда-исчисления как исчисления высказываний
++ Импликационный фрагмент интуиционистского исчисления высказываний
++ Просто типизированное лямбда-исчисление
++ Типизация по Карри
++ Отсутствие типа у Y-комбинатора
++ Изоморфизм Карри-Ховарда
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
