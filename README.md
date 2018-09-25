@@ -38,3 +38,16 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 4
+### Конъюнкция и дизъюнкция, просто типизированное лямбда-исчисление по Чёрчу.
++ Дизъюнкция и алгебраические типы
++ Конъюнкция и упорядоченные пары
++ Типизация по Чёрчу
++ Связь типизации по Чёрчу и по Карри
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ Статьи и документацию по функциональным языкам. Например, 
+Роман Душкин, Алгебраические типы данных и их использование в программировании
+http://fprog.ru/2009/issue2/roman-dushkin-algebraic-data-types/
