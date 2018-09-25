@@ -140,8 +140,9 @@ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorph
 
 \item Докажите лемму о поднятии с лекции, а именно, что для всех $M,N \in \Lambda_{\texttt{к}}$:
   \begin{enumerate}
-  \item если $M \rightarrow_\beta N$, то $|M| \rightarrow_\beta |N|$;
-  \item если $\Gamma \vdash_\texttt{ч} M : \sigma$, то $\Gamma \vdash |M|: \sigma$.
+  \item если $M \rightarrow_\beta N$, то для любого $M' \in \Lambda_{\texttt{ч}}$, такого, что
+        $|M'| = M$, найдётся такой $N' \in \Lambda_{\texttt{ч}}$, что $|N'| = N$ и $M' \rightarrow_\beta N'$;
+  \item если $\Gamma \vdash M : \sigma$, то найдётся такой $M' \in \Lambda_{\texttt{ч}}$, что $\Gamma \vdash_\texttt{ч} M': \sigma$.
   \end{enumerate} 
 
 \end{enumerate}
