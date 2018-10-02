@@ -149,10 +149,28 @@ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorph
 
 \section*{Домашнее задание №5: <<алгоритм унификации>>}
 
+\begin{enumerate}
+\item Покажите, что чёрчевский нумерал в общем случае имеет 
+тип $(\alpha\rightarrow\alpha)\rightarrow(\alpha\rightarrow\alpha)$.
+Имеют ли нумералы для $0$, $1$ и $2$ какие-то более общие типы?
+
+\item Обозначим тип для целых чисел $\eta = (\alpha\rightarrow\alpha)\rightarrow(\alpha\rightarrow\alpha)$.
+В данных обозначениях покажите, что операция сложения имеет тип $\eta\rightarrow\eta\rightarrow\eta$.
+
+\item Напомним, что $\overline{m} = \lambda f.\lambda x.f^{(m)}\ x$ (чёрчевский нумерал для $m$).
+Рассмотрим выражение $Power = \lambda m.\lambda n.n\ m$.
+\begin{enumerate}
+\item найдите тип $Power$;
+\item покажите, что $Power\ \overline{m}\ \overline{n} = \overline{m^n}$, найдите тип $Power\ \overline{m}\ \overline{n}$;
+\item покажите, что $\lambda x.Power\ x\ x$ не имеет типа;
+\item объясните кажущееся противоречие между предыдущими пунктами: почему 
+$Power\ \overline{2}\ \overline{2}$ имеет тип, а $(\lambda x.Power\ x\ x)\ \overline{2}$ не имеет типа.
+\end{enumerate}
+
 \item Докажите, что изложенный на лекции алгоритм унификации всегда завершается.
 Указание: постройте оценку сложности уравнения в алгебраических термах и покажите,
 что эта оценка уменьшается при каждом шаге алгоритма.
 
-\item ... Ожидайте следующих заданий ...
+\end{enumerate}
 
 \end{document}
