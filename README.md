@@ -51,3 +51,16 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + Статьи и документацию по функциональным языкам. Например, 
 Роман Душкин, Алгебраические типы данных и их использование в программировании
 http://fprog.ru/2009/issue2/roman-dushkin-algebraic-data-types/
+
+## Лекция 5
+### Изоморфизм Карри-Ховарда (завершение), Унификация
++ Теорема об изоморфизме Карри-Ховарда
++ Теорема о выразительной силе просто типизированного лямбда-исчисления (формулировка)
++ Основные задачи типизации в лямбда-исчислении: проверка типа, реконструкция типа, обитаемость типа
++ Алгебраические термы, алгоритм унификации
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ Alberto Martelli,  Ugo Montanari, An Efficient Unification Algorithm,
+ACM Transactions on Programming Languages and Systems (TOPLAS), Volume 4 Issue 2, April 1982, Pages 258-282
+http://moscova.inria.fr/~levy/courses/X/IF/03/pi/levy2/martelli-montanari.pdf
