@@ -64,3 +64,18 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + Alberto Martelli,  Ugo Montanari, An Efficient Unification Algorithm,
 ACM Transactions on Programming Languages and Systems (TOPLAS), Volume 4 Issue 2, April 1982, Pages 258-282
 http://moscova.inria.fr/~levy/courses/X/IF/03/pi/levy2/martelli-montanari.pdf
+
+## Лекция 6
+### Реконструкция типов в просто типизированном лямбда-исчислении, комбинаторы
++ Алгоритм реконструкции (вывода) типов в просто типизированном лямбда-исчислении,
+сведение задачи реконструкции типов к унификации.
++ Алгоритм унификации даёт наиболее общий унификатор --- формулировка утверждения и доказательство.
++ Наиболее общий унификатор соответствует наиболее общей (основной) паре (тип + контекст) в задаче о реконструкции типов. 
++ Сильная и слабая нормализация термов и исчислений. Теорема о сильной нормализуемости просто типизированного лямбда-исчисления
+(без доказательства)
++ Комбинаторы S,K,I. История возникновения, смысл названий. Выразимость замкнутых лямбда-выражений через S и K
+(алгоритм устранения абстракций). Альтернативный базис B,C,K,W.
++ Комбинаторы S,K и исчисление высказываний в гильбертовском стиле.
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
