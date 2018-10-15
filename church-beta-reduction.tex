@@ -12,6 +12,14 @@
 
 \begin{document}
 
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\newtheorem*{example}{Пример}
+%\theoremstyle{theorem}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{axiom}{Аксиома}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+
 \section*{О просто типизированном лямбда-исчислении по Чёрчу}
 
 Типизированное по Карри исчисление использует для лямбда-выражений синтаксис, эквивалентный 
@@ -26,6 +34,8 @@
 алфавита ($\alpha, \beta, \gamma, \dots$), возможно, с индексами и штрихами. 
 
 Буквами из конца алфавита ($\sigma, \tau, \dots$) будем обозначать метапеременные для типов.
+
+\begin{definition}
 Будем говорить, что строчка является типом $\tau$, если выполнено одно из условий:
 
 \begin{enumerate}
@@ -33,11 +43,15 @@
 \item существуют два типа $\sigma$ и $\phi$, что $\tau = (\sigma\rightarrow\phi)$.
 \end{enumerate}
 
+Будем обозначать множество типов как $T$.
+\end{definition}
+
 Фиксируем множество атомарных переменных $V_\Lambda$ --- маленькие латинские буквы начала 
 алфавита ($a, b, c, \dots$), возможно, с индексами и штрихами.
 Буквами конца алфавита ($x, y, z$) будем обозначать метапеременные для атомарных переменных.
-
 Большими буквами будем обозначать метапеременные для лямбда-выражений.
+
+\begin{definition}
 Будем говорить, что строчка $A$ является лямбда-предтермом по Чёрчу, если выполнено одно из условий:
 
 \begin{enumerate}
@@ -47,7 +61,8 @@
 \item существуют выражения $P$ и $Q$, что $A = (P\ Q)$.
 \end{enumerate}
 
-Будем обозначать множество типов как $T$, и множество предтермов как $\underline{\Lambda_\texttt{ч}}$.
+Обозначим множество предтермов как $\underline{\Lambda_\texttt{ч}}$.
+\end{definition}
 
 Несмотря на то, что мы потребовали обязательно указывать все скобки в выражениях, мы будем опускать
 часть скобок в примерах, в предположении, что читатели без труда их расставят правильным образом.
@@ -59,6 +74,10 @@
 \subsection{Лямбда-термы}
 
 Определим альфа-эквивалентность на лямбда-предтермах по Чёрчу.
+Мы не даём определений для понятий подстановки (в т.ч. подстановки типа),
+свободы для подстановки и других --- они сохраняют стандартный смысл.
+
+\begin{definition}
 Назовём терм $A$ альфа-эквивалентным терму $B$, если выполнено одно из следующих условий:
 
 \begin{enumerate}
@@ -70,24 +89,30 @@
              $B = \lambda y: \tau.P_B$, и что если зафиксировать некоторую свежую переменную
              $t$, то $P_A[x := t] =_\alpha P_B[y := t]$.
 \end{enumerate}
+\end{definition}
 
+\begin{definition}
 Построим фактор-множество по множеству $\underline{\Lambda_\texttt{ч}}$ с помощью отношения
-альфа-эквивалентности, и назовём его множеством лямбда-термов по 
-Чёрчу: $\Lambda_\texttt{ч} = \underline{\Lambda_\texttt{ч}}/(=_\alpha)$.
+альфа-эквивалентности, и назовём его \emph{множеством лямбда-термов по Чёрчу}:
+$\Lambda_\texttt{ч} = \underline{\Lambda_\texttt{ч}}/(=_\alpha)$.
+\end{definition}
 
-Определим множество свободных переменных лямбда-предтерма $A$ так:
+\begin{definition}
+Определим \emph{множество свободных переменных} лямбда-предтерма $A$ так:
 
 $$FV(A) = \left\{ \begin{array}{ll} 
        \{x\}, & A = x \\
        FV(P)\cup FV(Q), & A = (P\ Q) \\
        FV(P)\setminus \{x\}, & A = (\lambda x:\sigma.P)            
 \end{array}  \right.$$
+\end{definition}
 
 Несложно показать, что данное множество не зависит от выбора представителя класса эквивалентности,
 потому мы можем распространить данное определение и на лямбда-термы.
 
 \subsection{Редукция}
 
+\begin{definition}
 Будем писать $A \rightarrow_\beta B$, если имеет место одна из следующих ситуаций:
 
 \begin{enumerate}
@@ -96,46 +121,81 @@ $$FV(A) = \left\{ \begin{array}{ll}
 \item $A = (P\ Q_A)$, $B = (P\ Q_B)$, причём $Q_A\rightarrow_\beta Q_B$;
 \item $A = (\lambda x:\sigma.P_A)$, $B = (\lambda x:\sigma.P_B)$, причём $P_A\rightarrow_\beta P_B$.
 \end{enumerate}
+\end{definition}
 
-\noindent Обратите внимание, редукция не обращает внимание на типы. Если в процессе подстановки 
+Обратите внимание, редукция не обращает внимание на типы. Если в процессе подстановки 
 возникнет конфликт переменных (не будет выполнена свобода для подстановки), то требуется
 произвести переименование связанных переменных и продолжить редукцию --- аналогично
 бестиповому исчислению.
 
+Многошаговая бета-редукция $\twoheadrightarrow_\beta$ (бета-редуцируемость),
+бета-редекс и прочие понятия определяются аналогично просто-типизированному
+лямбда-исчислению.
+
 \subsection{Типизация}
 
+\begin{definition}
 \emph{Контекстом} выражения мы назовём список $\Gamma$, содержащий выражения вида $x : \sigma$.
+\end{definition}
 
-\subsection{Вспомогательные леммы}
+\begin{definition}
+Будем говорить, что лямбда-терм $M$ имеет тип $\alpha$ в контексте $\Gamma$ по Чёрчу,
+и записывать это как $\Gamma \vdash_\texttt{ч} M: \alpha$, если это утверждение
+является заключением одного из трёх (корректно применённых) правил вывода:
+
+\begin{center}
+\begin{tabular}{ccc}
+\infer[(\textrm{если } x \notin \Gamma)]{\Gamma, x:\tau\vdash_\texttt{ч}x:\tau}{} &
+\infer[(\textrm{если } x \notin \Gamma)]{\Gamma \vdash_\texttt{ч} \lambda x:\sigma.M: \sigma\rightarrow\tau}{\Gamma,x:\sigma\vdash_\texttt{ч}M:\tau} &
+\infer{\Gamma\vdash_\texttt{ч}M\ N:\tau}{\Gamma\vdash_\texttt{ч}M:\sigma\rightarrow\tau & \Gamma\vdash_\texttt{ч}N:\sigma}
+\end{tabular}
+\end{center}
+
+Индекс <<ч>> внизу знака выводимости мы будем опускать, если из контекста ясно,
+что речь идёт о типизации по Чёрчу.
+
+\end{definition}
 
 \subsection{Теорема Чёрча-Россера}
 
+Здесь мы перечислим некоторые важные леммы, не давая им доказательства
+(доказательство аналогично доказательствам лемм для бестипового исчисления).
+
+\begin{lemma}Лемма о редукции. Если $\Gamma\vdash_\texttt{ч}M:\sigma$, $M\rightarrow_\beta N$,
+то $\Gamma\vdash_\texttt{ч}N:\sigma$.
+\end{lemma}
+
+\begin{theorem} Теорема Чёрча-Россера.
 Пусть даны $A,B,C \in \Lambda_\texttt{ч}$, такие, что:
 \begin{enumerate}
 \item $\Gamma\vdash_\texttt{ч} A:\sigma$, $\Gamma\vdash_\texttt{ч} B:\sigma$, $\Gamma\vdash_\texttt{ч} C:\sigma$;
 \item $B \ne_\alpha C$;
-\item $A \rightarrow_\beta B$ и $A \rightarrow_\beta C$.
+\item $A \twoheadrightarrow_\beta B$ и $A \twoheadrightarrow_\beta C$.
 \end{enumerate}
 Тогда существует такой $D$, что:
 \begin{enumerate}
 \item $\Gamma\vdash_\texttt{ч} D:\sigma$;
-\item $B \rightarrow_\beta D$ и $C \rightarrow_\beta D$.
+\item $B \twoheadrightarrow_\beta D$ и $C \twoheadrightarrow_\beta D$.
 \end{enumerate}
+\end{theorem}
 
-\noindent Доказательство --- аналогично теореме Чёрча-Россера для бестипового исчисления.
+\begin{proof} Аналогично теореме Чёрча-Россера для бестипового исчисления
+с использованием леммы о редукции терма.
+\end{proof}
 
-Существует большое искушение доказывать теорему по следующему плану:
-\begin{enumerate}
-\item по теореме Чёрча-Россера для бестипового исчисления показать 
-существование $D' \in \Lambda$, такого, что $|B| \rightarrow D'$ и $|C| \rightarrow D'$;
-\item по леммам о редукции и поднятии заметить, что если $|B| \rightarrow_\beta D'$ и $\Gamma\vdash B:\sigma$, 
-то существует $D$, такой, что $B \rightarrow_\beta D$, $|D| = D'$ и $\Gamma\vdash_\texttt{ч} D: \sigma$;
-\item предположить, что этот $D$ и есть искомый.
-\end{enumerate}
+%Существует большое искушение доказывать теорему по следующему плану:
+%\begin{enumerate}
+%\item по теореме Чёрча-Россера для бестипового исчисления показать 
+%существование $D' \in \Lambda$, такого, что $|B| \rightarrow D'$ и $|C| \rightarrow D'$;
+%\item с помощью леммы о редукции заметить, что если 
+%$|B| \rightarrow_\beta D'$ и $\Gamma\vdash B:\sigma$, 
+%то существует $D$, такой, что $B \rightarrow_\beta D$, $|D| = D'$ и $\Gamma\vdash_\texttt{ч} D: \sigma$;
+%\item предположить, что этот $D$ и есть искомый.
+%\end{enumerate}
 
-Однако, это рассуждение не гарантирует нам, что $C \rightarrow_\beta D$,
-а только $|C| \rightarrow_\beta D'$, что не является доказательством требуемого утверждения.
-Попытка сослаться ещё раз на лемму о редукции для $C$ даст нам существование какого-то $D_1$,
-такого, что $C \rightarrow_\beta D_1$ и $|D_1|=D'$, но не докажет того, что $D = D_1$.
+%Однако, это рассуждение не гарантирует нам, что $C \rightarrow_\beta D$,
+%а только $|C| \rightarrow_\beta D'$, что не является доказательством требуемого утверждения.
+%Попытка сослаться ещё раз на лемму о редукции для $C$ даст нам существование какого-то $D_1$,
+%такого, что $C \rightarrow_\beta D_1$ и $|D_1|=D'$, но не докажет того, что $D = D_1$.
 
 \end{document}
