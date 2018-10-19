@@ -79,3 +79,14 @@ http://moscova.inria.fr/~levy/courses/X/IF/03/pi/levy2/martelli-montanari.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 7
+### Интуиционистское исчисление предикатов второго порядка, система F
++ Интуиционистское исчисление предикатов второго порядка, импликационный фрагмент.
++ Представление прочих связок ($\&$, $\vee$, $\bot$, $\exists$) через $(\rightarrow)$ и $(\forall)$.
++ Система F, соответствие исчислению предикатов второго порядка.
++ Исключения, упорядоченная пара, значения алгебраических типов в системе F.
++ Обзор результатов без доказательства: базовые теоремы (Чёрча-Россера и т.п.), сильная нормализуемость, неразрешимость задач типизиации.
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
