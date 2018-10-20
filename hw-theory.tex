@@ -206,11 +206,44 @@ $\sigma \sqsubseteq \theta$), если существует такая подс�
 
 \begin{enumerate}
 \item Докажите, что введённые на лекции представления для связок соответствуют правилам для связок:
-...
-\item Напомним, что чёрчевские нумералы представляются в системе F так:
-...
-\item Выведите тип для логических выражений. 
 
+\begin{enumerate} 
+\item Конъюнкция. 
+Если $\varphi \& \psi \equiv \forall \alpha.(\varphi\rightarrow\psi\rightarrow\alpha)\rightarrow\alpha$,
+то всегда можно доказать заключения следующих правил при доказанных посылках:
+
+\begin{center}\begin{tabular}{lp{0.5cm}lp{0.5cm}l}
+$$\infer{\Gamma\vdash\varphi\&\psi}{\Gamma\vdash\varphi\quad\Gamma\vdash\psi}$$ &&
+$$\infer{\Gamma\vdash\varphi}{\Gamma\vdash\varphi\&\psi}$$ &&
+$$\infer{\Gamma\vdash\psi}{\Gamma\vdash\varphi\&\psi}$$
+\end{tabular}\end{center}
+
+\item Дизъюнкция.
+Если $\varphi \vee \psi \equiv \forall \alpha.(\varphi\rightarrow\alpha)\rightarrow(\psi\rightarrow\alpha)\rightarrow\psi$,
+то можно показать такие правила:
+\begin{center}\begin{tabular}{lp{0.5cm}lp{0.5cm}l}
+$$\infer{\Gamma\vdash\varphi\vee\psi}{\Gamma\vdash\varphi}$$ &&
+$$\infer{\Gamma\vdash\varphi\vee\psi}{\Gamma\vdash\psi}$$ &&
+$$\infer{\Gamma\vdash\pi}{\Gamma\vdash\varphi\rightarrow\pi\quad\Gamma\vdash\psi\rightarrow\pi\quad\Gamma\vdash\varphi\vee\psi}$$
+\end{tabular}\end{center}
+
+\item Квантор существования.
+Если $\exists \alpha.\varphi \equiv \forall \theta.(\forall\alpha.\varphi\rightarrow\theta)\rightarrow\theta)$, то
+можно показать и следующие правила:
+
+\begin{center}\begin{tabular}{lp{1cm}l}
+$$\infer{\Gamma\vdash\exists \alpha.\varphi}{\Gamma\vdash\varphi[\alpha := \theta]}$$ &&
+$$\infer{\Gamma\vdash\psi}{\Gamma\vdash\exists\alpha.\varphi\quad\Gamma,\varphi\vdash\psi}$$
+\end{tabular}\end{center}
+
+\end{enumerate}
+
+\emph{... дополнительные задания следуют ...}
+
+%\item Напомним, что чёрчевские нумералы представляются в системе F так:
+%... 
+%\item Выведите тип для логических выражений. 
+%... <<ещё добавится
 \end{enumerate}
 
 \end{document}
