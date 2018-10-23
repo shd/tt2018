@@ -1,7 +1,8 @@
 Курс теории типов, КТ, осень 2018
 ==========================
 ## Материалы
-+ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
++ [теоретические домашние задания](https://github.com/shd/tt2018/blob/master/hw-theory.pdf)
++ [материал для первой половины курса] Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 
 ## Лекция 1
@@ -90,3 +91,15 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 8
+### Экзистенциальные типы, ранг типа, система Хиндли-Милнера
++ Экзистенциальные типы: определение, пример реализации на Хаскеле
++ Ранг типа
++ Синтаксис лямбда-выражений в системе Хиндли-Милнера
+### Где почитать
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ John C. Mitchell, Gordon D. Plotkin: Abstract Types Have Existential Type 
+https://theory.stanford.edu/~jcm/papers/mitch-plotkin-88.pdf
++ Файл https://github.com/shd/logic2018/blob/master/existential.hs
