@@ -102,4 +102,4 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + John C. Mitchell, Gordon D. Plotkin: Abstract Types Have Existential Type 
 https://theory.stanford.edu/~jcm/papers/mitch-plotkin-88.pdf
-+ Файл https://github.com/shd/logic2018/blob/master/existential.hs
++ Пример реализации экзистенциальных типов на Хаскеле https://github.com/shd/logic2018/blob/master/existential.hs
