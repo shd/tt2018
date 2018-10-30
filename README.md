@@ -118,4 +118,4 @@ https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system
 + Damas, Luis; Milner, Robin. Principal type-schemes for functional programs (PDF). 
 9th Symposium on Principles of programming languages (POPL'82). ACM. pp. 207–212.
 http://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf
-+ Б. Пирс, Типы в языках программирования, М.: Издательство <<Лямбда-пресс>>: <<Добросвет>>, 2011.
++ Б. Пирс, Типы в языках программирования, М.: Издательство «Лямбда-пресс»: «Добросвет», 2011.
