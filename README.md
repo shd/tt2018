@@ -104,3 +104,18 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + John C. Mitchell, Gordon D. Plotkin: Abstract Types Have Existential Type 
 https://theory.stanford.edu/~jcm/papers/mitch-plotkin-88.pdf
 + Пример реализации экзистенциальных типов на Хаскеле https://github.com/shd/tt2018/blob/master/existential.hs
+
+## Лекция 9
+### Алгоритм W, расширения системы (Y-комбинатор и рекурсивные типы)
++ Правила вывода в системе Хиндли-Милнера
++ Алгоритм W
++ Тип Y-комбинатора
++ Изо- и эквирекурсивные типы, оператор $\mu$, операции roll и unroll.
+### Где почитать
++ Статья на Википедии довольно информативна, можно начать с неё:
+https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system
++ Milner, Robin. A Theory of Type Polymorphism in Programming. Journal of Computer and System Sciences. 17: 348–374
++ Damas, Luis; Milner, Robin. Principal type-schemes for functional programs (PDF). 
+9th Symposium on Principles of programming languages (POPL'82). ACM. pp. 207–212.
+http://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf
++ Б. Пирс, Типы в языках программирования, М.: Издательство <<Лямбда-пресс>>: <<Добросвет>>, 2011.
