@@ -4,11 +4,13 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{cmll}
 \usepackage{enumerate}
 \usepackage{stmaryrd}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{proof}
 \usepackage{url}
+\usepackage{CJKutf8}
 \newcommand{\gq}[1]{\texttt{<<}#1\texttt{>>}}
 \newcommand{\ogq}[1]{\overline{\texttt{<<}#1\texttt{>>}}}
 \begin{document}
@@ -241,6 +243,7 @@ $$\infer[(\alpha\notin FV(\Gamma,\psi))]{\Gamma\vdash\psi}{\Gamma\vdash\exists\a
 
 \section*{Домашнее задание №8: <<экзистенциальные типы, ранг типа>>}
 
+\begin{CJK}{UTF8}{min}
 \begin{enumerate}
 
 \item Докажите, что если $\sigma \in R(1)$, то существует $\psi$ с поверхностными кванторами, что
@@ -250,15 +253,56 @@ $\psi \vdash \sigma$ и $\sigma \vdash \psi$.
 кванторами и лямбда-выражения $N$, $F$ и $B$ в системе F, такие, что $N:\psi$, 
 $F:\sigma\rightarrow\psi$ и $B:\psi\rightarrow\sigma$.
 
-%\item Докажите, что реализация аналогов правил с квантором существования в системе $F$:
+\item Пусть задан экзистенциальный тип $\exists\alpha.\sigma$. Если рассматривать экзистенциальные
+типы в терминах АТД, то $\alpha$ здесь --- переменная для типа структуры данных (массив, список и т.п.),
+а $\sigma$ --- интерфейс (например, рассматривавшийся на лекции интерфейс стэка: 
+$\alpha \with (\alpha\rightarrow\nu\rightarrow\alpha) \with (\alpha\rightarrow(\nu\with\alpha))$).
+
+Также пусть задана реализация этого типа (актуальный тип для структуры данных --- $\beta$, и
+актуальная реализация интерфейса --- $T$).
+
+\begin{enumerate}
+\item 
+Операция \emph{упаковки}: обозначим за $$\texttt{pack}\ \{\beta,T\}\ \texttt{to}\ \exists\alpha.\sigma$$ выражение 
+$$\Lambda \gamma.\lambda x: (\forall \alpha. \sigma\rightarrow\gamma).x\ \beta\ T$$
+
+Покажите выполнение правила
+$$\infer{\Gamma\vdash\texttt{pack}\ \{\beta,T\}\ \texttt{to}\ \exists\alpha.\sigma : \exists\alpha.\sigma}
+{\Gamma\vdash T : \sigma[\alpha := \beta]}$$
+
+\item Операция \emph{распаковки}: обозначим за $$\texttt{unpack}\ \{\alpha,x\} = T\ \texttt{in}\ E^\delta$$ выражение
+$$T\ \delta\ (\Lambda \alpha.\lambda x: \sigma.E)$$
+
+Покажите выполнение правила
+$$\infer{\Gamma\vdash \texttt{unpack}\ \{\alpha,x\} = T\ \texttt{in}\ E^\delta: \delta}
+{\Gamma\vdash T : \exists\alpha.\sigma \quad \Gamma,x:\sigma \vdash E : \delta}$$
+
+\item Выразите алгебраический тип от двух аргументов через экзистенциальный тип:
+постройте лямбда-выражения для $\texttt{in}_L$, $\texttt{in}_R$ и 
+\texttt{case}, использующие \texttt{pack} и \texttt{unpack},
+покажите, что правила вывода для дизъюнкции будут выполняться
+и что результат бета-редукции выражений в правилах будет ожидаемым.
+
+\end{enumerate}
 
 \item Рассмотрим абстрактный тип данных \verb!NatNum! (<<натуральное число>>), с операциями: (a) константа 0;
 (б) сравнение двух значений; (в) прибавление 1; (г) печать в строку. Задайте его на языке Хаскель
 с помощью экзистенциальных типов, предусмотрите три реализации (через \verb!Integer!, аксиоматику
-Пеано и в виде строчек из цифр), напишите функции: (а) печати списка чисел в строку
-(\verb![NatNum] -> String!); (б) умножения каждого числа в списке на два (\verb![NatNum] -> [NatNum]!);
-(в) суммы списка (\verb![NatNum] -> NatNum!).
+Пеано и в виде строчек из цифр), напишите функции: (一) печати списка чисел в строку
+(\verb![NatNum] -> String!); (二) удвоения каждого числа в списке (\verb![NatNum] -> [NatNum]!);
+(三) суммы списка (\verb![NatNum] -> NatNum!).
+
+\emph{Указание:} напомним, что значение экзистенциального типа --- это функция, берущая на вход
+функцию, проводящую вычисление с абстрактным типом данных. Этот абстрактный тип доступен только
+внутри вызова, наружу его передать нельзя. 
+Поэтому, чтобы увидеть результат исполнения функций (一), (二) и (三), нужно также обернуть 
+их в какое-то вычисление, выдающее 
+<<не-абстрактный>> результат (например, текстовую строку), и уже это вычисление передавать
+внутрь значения экзистенциального типа.
+
+Смотрите пример реализации \url{https://github.com/shd/tt2018/blob/master/existential.hs}
 
 \end{enumerate}
+\end{CJK}
 
 \end{document}
