@@ -270,11 +270,11 @@ $$\Lambda \gamma.\lambda x: (\forall \alpha. \sigma\rightarrow\gamma).x\ \beta\ 
 $$\infer{\Gamma\vdash\texttt{pack}\ \{\beta,T\}\ \texttt{to}\ \exists\alpha.\sigma : \exists\alpha.\sigma}
 {\Gamma\vdash T : \sigma[\alpha := \beta]}$$
 
-\item Операция \emph{распаковки}: обозначим за $$\texttt{unpack}\ \{\alpha,x\} = T\ \texttt{in}\ E^\delta$$ выражение
+\item Операция \emph{распаковки}: обозначим за $$\texttt{unpack}\ \{\alpha,x:\sigma\} = T\ \texttt{in}\ E^\delta$$ выражение
 $$T\ \delta\ (\Lambda \alpha.\lambda x: \sigma.E)$$
 
 Покажите выполнение правила
-$$\infer{\Gamma\vdash \texttt{unpack}\ \{\alpha,x\} = T\ \texttt{in}\ E^\delta: \delta}
+$$\infer{\Gamma\vdash \texttt{unpack}\ \{\alpha,x:\sigma\} = T\ \texttt{in}\ E^\delta: \delta}
 {\Gamma\vdash T : \exists\alpha.\sigma \quad \Gamma,x:\sigma \vdash E : \delta}$$
 
 \item Выразите алгебраический тип от двух аргументов через экзистенциальный тип:
