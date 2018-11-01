@@ -233,17 +233,32 @@ $$\infer{\Gamma\vdash\pi}{\Gamma,\varphi\vdash\pi\quad\Gamma,\psi\vdash\pi\quad\
 
 \begin{center}\begin{tabular}{lp{1cm}l}
 $$\infer{\Gamma\vdash\exists \alpha.\varphi}{\Gamma\vdash\varphi[\alpha := \theta]}$$ &&
-$$\infer{\Gamma\vdash\psi}{\Gamma\vdash\exists\alpha.\varphi\quad\Gamma,\varphi\vdash\psi}$$
+$$\infer[(\alpha\notin FV(\Gamma,\psi))]{\Gamma\vdash\psi}{\Gamma\vdash\exists\alpha.\varphi\quad\Gamma,\varphi\vdash\psi}$$
 \end{tabular}\end{center}
 
 \end{enumerate}
+\end{enumerate}
 
-\emph{... дополнительные задания следуют ...}
+\section*{Домашнее задание №8: <<экзистенциальные типы, ранг типа>>}
 
-%\item Напомним, что чёрчевские нумералы представляются в системе F так:
-%... 
-%\item Выведите тип для логических выражений. 
-%... <<ещё добавится
+\begin{enumerate}
+
+\item Докажите, что если $\sigma \in R(1)$, то существует $\psi$ с поверхностными кванторами, что
+$\psi \vdash \sigma$ и $\sigma \vdash \psi$.
+
+\item Докажите, что если $M:\sigma$ и $\sigma \in R(1)$, то существует $\psi$ с поверхностными
+кванторами и лямбда-выражения $N$, $F$ и $B$ в системе F, такие, что $N:\psi$, 
+$F:\sigma\rightarrow\psi$ и $B:\psi\rightarrow\sigma$.
+
+%\item Докажите, что реализация аналогов правил с квантором существования в системе $F$:
+
+\item Рассмотрим абстрактный тип данных \verb!NatNum! (<<натуральное число>>), с операциями: (a) константа 0;
+(б) сравнение двух значений; (в) прибавление 1; (г) печать в строку. Задайте его на языке Хаскель
+с помощью экзистенциальных типов, предусмотрите три реализации (через \verb!Integer!, аксиоматику
+Пеано и в виде строчек из цифр), напишите функции: (а) печати списка чисел в строку
+(\verb![NatNum] -> String!); (б) умножения каждого числа в списке на два (\verb![NatNum] -> [NatNum]!);
+(в) суммы списка (\verb![NatNum] -> NatNum!).
+
 \end{enumerate}
 
 \end{document}
