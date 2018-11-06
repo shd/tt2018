@@ -106,11 +106,12 @@ https://theory.stanford.edu/~jcm/papers/mitch-plotkin-88.pdf
 + Пример реализации экзистенциальных типов на Хаскеле https://github.com/shd/tt2018/blob/master/existential.hs
 
 ## Лекция 9
-### Алгоритм W, расширения системы (Y-комбинатор и рекурсивные типы)
+### Алгоритм W, расширения системы (Y-комбинатор и рекурсивные типы), зависимые типы
 + Правила вывода в системе Хиндли-Милнера
 + Алгоритм W
 + Тип Y-комбинатора
 + Изо- и эквирекурсивные типы, оператор μ, операции roll и unroll.
++ Зависимые типы, примеры (printf и int[n]), П-синтаксис.
 ### Где почитать
 + Статья на Википедии довольно информативна, можно начать с неё:
 https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system
@@ -119,3 +120,11 @@ https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system
 9th Symposium on Principles of programming languages (POPL'82). ACM. pp. 207–212.
 http://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf
 + Б. Пирс, Типы в языках программирования, М.: Издательство «Лямбда-пресс»: «Добросвет», 2011.
+
+## Лекция 10
+### Обобщённые типовые системы, лямбда-куб
++ Типы, рода, сорта. Символы * и □.
++ Обобщённые типовые системы.
++ Варианты типовых систем и Лямбда-куб. Положение распространённых языков программирования на нём.
+### Где почитать
++ Barendregt, Henk. Introduction to generalized type systems. Journal of Functional Programming 1 (2): 125-154, April 1991.
