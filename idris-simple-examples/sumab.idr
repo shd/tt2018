@@ -1,3 +1,6 @@
+-- для компиляции указывайте аргумент -p: 
+-- idris -p effects sumab.idr -o sumab.exe
+
 import Effects
 import Effect.State
 import Effect.Exception
