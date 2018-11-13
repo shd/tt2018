@@ -1,4 +1,4 @@
--- для компиляции указывайте аргумент -p: 
+-- для компиляции указывайте аргумент -p effects: 
 -- idris -p effects sumab.idr -o sumab.exe
 
 import Effects
