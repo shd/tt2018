@@ -329,7 +329,7 @@ $$\infer{\Gamma\vdash \texttt{unpack}\ \{\alpha,x:\sigma\} = T\ \texttt{in}\ E^\
 map2: {X:Type} -> {Y:Type} -> {Z:Type} -> (a:Nat) -> (b:Nat) -> 
                        (X->Y->Z) -> Vect a X -> Vect b Y -> Vect (nat_min a b) Z
 
-index2: {X:Type} -> {Y:Type} -> (a:Nat) -> Fin (nat_min a b) ->
+index2: {X:Type} -> {Y:Type} -> (a:Nat) -> (b:Nat) -> Fin (nat_min a b) ->
                        Vect a X -> Vect b Y -> (X,Y)
 \end{verbatim}
 
