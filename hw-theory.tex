@@ -305,4 +305,34 @@ $$\infer{\Gamma\vdash \texttt{unpack}\ \{\alpha,x:\sigma\} = T\ \texttt{in}\ E^\
 \end{enumerate}
 \end{CJK}
 
+\section*{Домашнее задание №9: <<Idris, введение>>}
+\begin{enumerate}
+\item Определите в языке Идрис конъюнкцию и дизъюнкцию.
+Определите все стандартные операции для них (инъекции, проекции и т.п.):
+эти операции, очевидно, будут доказательством некоторых утверждений в интуиционистской
+логике. Какие это утверждения, приведите их.
+
+\item Определите функцию \verb!swap: Vect n a -> (Fin n) -> (Fin n) -> Vect n a!,
+строящую новый вектор, в котором два элемента вектора поменяны местами.
+
+\item Определите функции арифметики для Fin:\\
+(а) \verb!plus_fin: Fin a -> Fib b -> Fin (a+b)!\\
+(б) \verb!mul_fin: Fin a -> Fin b -> Fin (a*b)!\\
+(в) \verb!dec_fin: Fin (S a) -> Fin a!
+
+\item Определите функции минимума для натуральных (Пеано) и конечных чисел:\\
+\verb!nat_min: Nat -> Nat -> Nat!\\
+\verb!min_fin: {a:Nat} -> {b:Nat} -> Fin (S a) -> Fin (S b) -> Fin (S (nat_min a b))!
+
+Также определите функции:
+\begin{verbatim}
+map2: {X:Type} -> {Y:Type} -> {Z:Type} -> (a:Nat) -> (b:Nat) -> 
+                       (X->Y->Z) -> Vect a X -> Vect b Y -> Vect (nat_min a b) Z
+
+index2: {X:Type} -> {Y:Type} -> (a:Nat) -> Fin (nat_min a b) ->
+                       Vect a X -> Vect b Y -> (X,Y)
+\end{verbatim}
+
+\end{enumerate}
+
 \end{document}
