@@ -335,4 +335,131 @@ index2: {X:Type} -> {Y:Type} -> (a:Nat) -> (b:Nat) -> Fin (nat_min a b) ->
 
 \end{enumerate}
 
+\section*{Домашнее задание №10: <<Идрис, простые доказательства>>}
+Ещё раз напомним основную идею доказательства:
+доказать утверждение $\sigma$ --- это построить такое выражение $M$,
+что $\vdash M:\sigma$.
+
+В языках с типовой системой Хиндли-Милнера существует алгоритм, разрешающий
+задачу типизации: там для вывода типов достаточно самого выражения $M$ и 
+типа $\sigma$. В Идрисе, с учётом сложности языка, задача типизации неразрешима,
+поэтому компилятор может догадаться до типа сам только в очень простых случаях.
+В остальных ситуациях компилятору нужны подсказки.
+
+Например, заметить, что \verb!Refl: 0+z=z+0!, компилятор сам не может
+(сразу напомним, что если тип значений компилятору известен, то мы можем
+писать \verb!+! вместо \verb!plus!, \verb!0! вместо \verb!Z!,
+\verb!1! вместо \verb!S Z!).
+Ему можно это пояснить, написав функцию, проводящую доказательство
+по индукции, на лекции мы рассматривали такой её вариант:
+
+\begin{verbatim}
+plus_zero_commutative : (a : Nat) -> (0+a) = (a+0)
+plus_zero_commutative Z = Refl
+plus_zero_commutative (S k) = rewrite (plus_zero_commutative k) in Refl
+\end{verbatim}
+
+Однако, магия конструкции \verb!rewrite! оставила много вопросов,
+поэтому давайте копнём глубже, и разберём этот пример с точки зрения 
+функции \verb!replace!, которую использует \verb!rewrite!.
+
+\verb!replace: (x=y) -> P x -> P y!.
+
+Функция replace берёт два явных параметра, и один неявный ($P$).
+$P$ --- это некоторый тип, зависящий от $x$. Функция имеет естественный 
+смысл: если два значения равны, и свойство выполнено для одного из них, 
+то оно выполнено и для другого.
+
+Неявность $P$ предполагает, что компилятор может догадаться до того, что
+это за значение, но на практике он не справляется с этой задачей. 
+Поэтому обычно $P$ нужно указывать.
+
+Давайте поймём, что это должен быть за $P$. В случае \verb!plus_zero_commutative!
+мы, имея предположением индукции \verb!0+a=a+0!, должны
+доказать \verb!0 + (S a) = (S a) + 0!. Логично взять предположение
+за равенство $x=y$, при этом \verb!x! будет соответствовать \verb!0 + a!,
+а \verb!y! будет соответствовать \verb!a + 0!.
+Теперь подберём такое $P$, чтобы \verb!P (0 + a)! 
+унифицировалось с \verb!0 + (S a)!, а \verb!P (a + 0)! унифицировалось 
+с \verb!(S a) + 0!.
+
+Давайте возьмём \verb!P = \w => S (0+a)=S w!. Тогда \verb!P (0 + a)! --- это
+\verb!S (0+a) = S (0+a)! (что очевидно доказывается при помощи \verb!Refl!), 
+а \verb!P (a+0)! --- это \verb!S (0+a) = S (a+0)! (что является требуемым 
+утверждением, так как \verb!S (0+a)! = \verb!S(a)! = \verb!0+S(a)!; компилятор,
+как мы обсуждали, способен короткие цепочки подобных преобразований
+производить самостоятельно).
+
+Итак, мы получили следующий код:
+\begin{verbatim}
+plus_zero_commutative: (a:Nat) -> 0 + a = a + 0
+plus_zero_commutative Z = Refl
+plus_zero_commutative (S a) = 
+      replace {P = \w => S (0+a)=S w} (plus_zero_commutative a) Refl
+\end{verbatim}
+
+В отличие от \verb!replace!, конструкция \verb!rewrite! имеет дополнительный
+эвристический алгоритм для подбора соответствующего $P$, поэтому в части случаев 
+мы можем довериться её интеллекту.
+
+\begin{enumerate}
+\item Свойства равенства. Докажите, что:
+\begin{enumerate}
+\item \verb!x = y -> y = x!
+\item \verb!x = y -> y = z -> x = z!
+\item (конгруэнтность) \verb!(P: A->B) -> x = y -> P x = P y!
+\end{enumerate}
+
+\item Простая арифметика --- сложение. Докажите, что:
+\begin{enumerate} 
+\item \verb!x = x + 0!
+\item \verb!S x = 1 + x!
+\item \verb!S x = x + 1!
+\item \verb!S x + S x = S (S (x + x))!
+\item \verb!S x + S y = S (S (x + y))!
+\item \verb!S (x + y) = x + (S y)!
+\item \verb!x + y = y + x!
+\item \verb!x + (y + z) = (x + y) + z!
+\end{enumerate}
+
+\item Простая арифметика --- умножение. Докажите, что:
+\begin{enumerate} 
+\item \verb!0 = x * 0!
+\item \verb!0 = 0 * x!
+\item \verb!x = 1 * x!
+\item \verb!x = x * 1!
+\item \verb!x * y = y * x!
+\item \verb!x * (y * z) = (x * y) * z!
+\item \verb!x * (y + z) = x * y + x * z!
+\end{enumerate}
+
+\item Отношение <<меньше или равно>> определено в библиотеке Идрис так:
+
+\begin{verbatim}
+data LTE : (n : Nat) -> (m : Nat) -> Type where
+    LTEZero : LTE 0 right  -- Zero is the smallest Nat
+    LTESucc : LTE left right -> LTE (S left) (S right)
+                           -- If n <= m, then n + 1 <= m + 1
+\end{verbatim}
+
+\begin{enumerate}
+\item Докажите, что \verb!LTE 3 5!
+\item Докажите, что \verb!LTE x y -> LTE x (S y)!
+\item Докажите, что \verb!LTE x y -> LTE (x+n) (y+n)!
+\end{enumerate}
+
+\item Определите отношение <<строго больше>>, $GT$. Докажите, что
+
+\verb!(x:Nat) -> (y:Nat) -> Either (LTE x y) (GT x y)!
+
+\item Определите ограниченное вычитание \verb!sub! (\verb!sub x y! равно 0, если $x < y$), 
+докажите:
+\begin{enumerate}
+\item \verb!LTE x y -> sub x y = 0!
+\item \verb!sub x y = 0 -> LTE x y!
+\item \verb!LTE y x -> y + (sub x y) = x!
+\end{enumerate}
+
+\end{enumerate}
+
 \end{document}
