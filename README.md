@@ -5,6 +5,7 @@
 + [теоретические домашние задания] (https://github.com/shd/tt2018/blob/master/hw-theory.pdf)
 + [материал для первой половины курса] Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ [вопросы к зачёту] (https://github.com/shd/tt2018/blob/master/questions.pdf)
 
 ## Лекция 1
 ### Лямбда-исчисление, базовые определения, примеры
@@ -155,3 +156,18 @@ https://github.com/shd/tt2018/tree/master/idris-simple-examples
 ### Где почитать
 + Домашняя страница языка Идрис
 https://www.idris-lang.org/
+
+## Лекция 13
+### Немного о конструктивной математике
++ ZF + классическая логика и ZF + интуиционистская логика 
++ Аксиома выбора
++ Чем плохи типы как аналоги множеств. Доказательство «аксиомы выбора»
++ Сетоиды
++ Аксиома выбора в сетоидах
++ Теорема Диаконеску. Неформализованное доказательство
++ Теорема Диаконеску. Как выразить в Идрисе
+### Где почитать
++ ...
+https://kurser.math.su.se/course/view.php?id=48&lang=en
++ Теорема Диаконеску в системе Кок
+https://coq.inria.fr/stdlib/Coq.Logic.Diaconescu.html
