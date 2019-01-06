@@ -41,6 +41,8 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ J. Barkley Rosser: Highlights of the history of the lambda-calculus,
+Proceedings of the 1982 ACM symposium on LISP and functional programming, Pages 216-225 
 
 ## Лекция 4
 ### Конъюнкция и дизъюнкция, просто типизированное лямбда-исчисление по Чёрчу.
